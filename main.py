@@ -282,6 +282,9 @@ async def handle_url(message: Message):
 async def main():
     global bot
     if not TOKEN:
+        logger.error(
+            "BOT_TOKEN не задан в переменных окружения. Проверьте Render → Environment."
+        )
         raise RuntimeError("BOT_TOKEN не задан в переменных окружения")
     bot = Bot(token=TOKEN)
     # На Render иногда остаётся старый webhook (или следы прошлых запусков),
